@@ -24,7 +24,8 @@ def main(argv=None):
     result_save_directory = 'ProposalResults'
     save_file = os.path.join(result_save_directory, 'ViewProposalResults-tmp.txt')
     anchors = project_utils.get_pdefined_anchors(anchor_file='datasets/pdefined_anchor.pkl')
-    model_weight_path = './pretrained/ProposalNet/VPN'
+    #model_weight_path = './pretrained/ProposalNet/VPN'
+    model_weight_path = '/home/iot/zhenjiang/zidong_goutu/model_params/ProposalNet/VPN'
 
     # Machine Learning Cores:
     data_transform = transforms.get_val_transform(image_size=320)
@@ -78,7 +79,7 @@ def main(argv=None):
                     image_annotation[s_image_name] = {}
                     image_annotation[s_image_name]['scores'] = scores_selected[0:pick_n]
                     image_annotation[s_image_name]['bboxes'] = bboxes_selected[0:pick_n]
-        print "Done Computing, saving to {:s}".format(save_file)
+        print( "Done Computing, saving to {:s}".format(save_file))
         load_utils.save_json(image_annotation, save_file)
 if __name__ == '__main__':
     tf.app.run()

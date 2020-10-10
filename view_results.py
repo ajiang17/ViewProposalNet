@@ -5,6 +5,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
+sys.path.insert(0,"/home/iot/zhenjiang/zidong_goutu/ViewProposalNet/")
 import project_utils
 # from datasets.get_test_image_list import get_test_list, get_pdefined_anchors, getImagePath
 from py_utils import dir_utils, load_utils
@@ -38,19 +39,22 @@ def viewBBoxes(image_file, bboxes, titles, showImageName=True):
 
 
 
-annotation_path = 'ProposalResults/ViewProposalResults-tmp.txt'
-image_path_root = '/home/zwei/Dev/CVPR18_release/tmp'
+annotation_path = '/home/iot/zhenjiang/zidong_goutu/ViewProposalNet/ProposalResults/ViewProposalResults-tmp.txt'
+#image_path_root = '/home/iot/zhenjiang/zidong_goutu/ViewProposalNet/tmp_szj'
+image_path_root = '/home/iot/zhenjiang/zidong_goutu/ViewProposalNet/example_images/'
 
 image_data = load_utils.load_json(annotation_path)
 image_name_list = image_data.keys()
-image_name_list.sort()
+#image_name_list.sort()
+sorted(image_name_list)
 for idx, image_name in enumerate(image_name_list):
     if idx<20:
-        continue
+        #continue
+        print(idx)
     s_image_path = os.path.join(image_path_root, image_name)
     bboxes = image_data[image_name]['bboxes']
     scores = image_data[image_name]['scores']
     viewBBoxes(s_image_path, bboxes, scores)
 
-print "DEBUG"
+print( "DEBUG")
 

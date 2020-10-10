@@ -25,9 +25,9 @@ def verify_image_list(image_list, attemptOpen=False, image_loader=default_image_
                     image_loader(s_image_path)
                     verified_image_list.append(s_image_path)
                 except:
-                    print "Cannot Load {:s}".format(s_image_path)
+                    print( "Cannot Load {:s}".format(s_image_path))
             else:
                 verified_image_list.append(s_image_path)
         else:
-            print "Image Not Exist: {:s}".format(s_image_path)
+            print( "Image Not Exist: {:s}".format(s_image_path))
     return verified_image_list
